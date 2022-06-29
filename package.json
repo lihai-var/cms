@@ -1,0 +1,105 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env env_config=dev vue-cli-service serve --open",
+    "build": "cross-env env_config=prod vue-cli-service build",
+    "build:t": "cross-env env_config=test vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test1": "vue-cli-service test:e2e",
+    "test2": "vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "crypto-js": "^3.1.9-1",
+    "element-ui": "^2.8.2",
+    "vue": "^2.6.6",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@vue/cli-plugin-babel": "^3.5.0",
+    "@vue/cli-plugin-eslint": "^3.5.0",
+    "@vue/cli-plugin-unit-jest": "^3.5.0",
+    "@vue/cli-service": "^3.5.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "cross-env": "^5.2.1",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "husky": "^4.3.0",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {
+      "no-undef": 0,
+      "no-console": 0,
+      "no-unused-vars": 0,
+      "no-useless-escape": 0,
+      "indent": "off",
+      "vue/script-indent": [
+        "error",
+        4
+      ]
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.vue$": "vue-jest",
+      ".+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "snapshotSerializers": [
+      "jest-serializer-vue"
+    ],
+    "testMatch": [
+      "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
+    ],
+    "testURL": "http://localhost/"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
